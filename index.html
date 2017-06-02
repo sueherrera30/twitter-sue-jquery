@@ -42,23 +42,25 @@
        	 <div class="row">
        	  <div class="col s6 offset-s3">
        	  
-       	  <h6 class=" teal-text text-darken-1">
+       	  <h6 class=" teal-text text-darken-1 .mt-1">
        	  Escribe un nuevo tweet:</h6>
        	  
-           <form>    
+           <form id="formulario">    
             <div class="input-field">
-             <textarea id="textarea1" class="materialize-textarea mt-1"></textarea>
+             <textarea id="area-escribir" class="materialize-textarea mt-1"></textarea>
              <label for="textarea1">tweet</label>
             </div>
 	       </form>
- 
-           <a class="waves-effect waves-light btn">Enviar</a>
-           <span class="contador">/140</span>
-           
+              <button type="submit" class="waves-effect waves-light btn" id="btnEnviar">Enviar</button>
+              <span class="contador ml-1">140</span>
             </div>
 		   </div>
         </section>
        <!--termina textarea boton y contador-->
+       
+       <!--inicia contenedor de tweets publicados-->
+         <section id="recipiente-tweets"></section>
+       <!--  termina contenedor de tweets publicados-->
        
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>   
