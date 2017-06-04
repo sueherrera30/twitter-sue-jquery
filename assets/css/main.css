@@ -21,3 +21,8 @@
 	width: 15%;
 	height: 15%;
 }
+
+.eliminar{
+	display: block;
+	text-align: right;
+}
