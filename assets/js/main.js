@@ -1,5 +1,4 @@
 $(document).ready(function(){
- var contador = 0;
  var $btnEnviar = $("#btnEnviar");
 	
  var enviarTweet = function(){
@@ -46,19 +45,28 @@ $(document).ready(function(){
 	  
 	  if ($contador <= 119){
 			$contenedorContador.addClass("green");
+		  
 	  }
 	  if ($contador >= 120){
 			$contenedorContador.removeClass("green").addClass("yellow lighten-2");
+		  
 	  }
 	  
 	  if ($contador >= 130){
 		  $contenedorContador.removeClass("yellow lighten-2").addClass("amber");
+		  
 	       }
 	  
-		   if ($contador >= 140){
+		   if ($contador > 140){
 			$contenedorContador.removeClass("amber").addClass("red darken-1");
+			
+	         $contenedorContador.text( "-"+ $contador++ +"/140 caracteres");
+			   $btnEnviar.addClass("disabled"); 
 		   }
-		
+	        else{
+				$btnEnviar.removeClass("disabled");
+			}
+	  
 	};
 	
 	  var $contenedorTweet = $("#area-escribir");
