@@ -1,6 +1,7 @@
 $(document).ready(function(){
  var $btnEnviar = $("#btnEnviar");
 	
+	
  var enviarTweet = function(){
   /*traemos elementos*/
   
@@ -9,6 +10,8 @@ $(document).ready(function(){
 	
    /*obtenemos el valor del mensaje ingresado*/
    var $tweet = $contenedorTweet.val();
+	var $tiempo = new Date(); 
+	var hora = $tiempo.toLocaleString();
   
    /*creamos elemento de forma dinamica*/
    var $contenedorTweetNuevo = $("<div/>",{ "class": "card-panel col s4 offset-s4 teal-text text-lighten-2"});
@@ -18,9 +21,14 @@ $(document).ready(function(){
 	 $imgPajarito.attr('src', 'assets/img/logo2.png'); 
 	 var $eliminar = $("<i/>",{"class":"material-icons eliminar teal-text"});
 	 $eliminar.text("delete");
+	 
+	 var $contenedorHora = $('<span/>',{'class': 'valign-wrapper'});
+	 var $tiempo = getTime();
+	 $contenedorHora.append($tiempo);
 	 $contenedorTweetNuevo.append($imgPajarito);
 	 $contenedorTweetNuevo.append($tweet);
      $contenedorTweetNuevo.append($eliminar); 
+	 $contenedorTweetNuevo.append($tiempo);
 	 $fila.append($contenedorTweetNuevo);
      $recipienteTweets.prepend($fila);
 	 $contenedorTweet.val("");
@@ -59,20 +67,18 @@ $(document).ready(function(){
 	  
 		   if ($contador > 140){
 			$contenedorContador.removeClass("amber").addClass("red darken-1");
-			
-	         $contenedorContador.text( "-"+ $contador++ +"/140 caracteres");
+	         $contenedorContador.text( "-"+ $contador +"/140 caracteres");
 			   $btnEnviar.addClass("disabled"); 
 		   }
 	        else{
 				$btnEnviar.removeClass("disabled");
 			}
-	  
 	};
 	
 	  var $contenedorTweet = $("#area-escribir");
 	  $contenedorTweet.keyup(contadorPalabras);
 	
- $btnEnviar.click(enviarTweet);
+       $btnEnviar.click(enviarTweet);
 	
  /*funcion contador*/
 
